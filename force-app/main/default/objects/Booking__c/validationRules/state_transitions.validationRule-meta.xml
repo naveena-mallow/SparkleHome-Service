@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>state_transitions</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+ISCHANGED(Status__c),
+
+NOT(
+
+OR(
+
+AND(
+ISPICKVAL(PRIORVALUE(Status__c),&quot;Requested&quot;),
+ISPICKVAL(Status__c,&quot;Confirmed&quot;)
+),
+
+AND(
+ISPICKVAL(PRIORVALUE(Status__c),&quot;Requested&quot;),
+ISPICKVAL(Status__c,&quot;Cancelled&quot;)
+),
+
+AND(
+ISPICKVAL(PRIORVALUE(Status__c),&quot;Confirmed&quot;),
+ISPICKVAL(Status__c,&quot;In Progress&quot;)
+),
+
+AND(
+ISPICKVAL(PRIORVALUE(Status__c),&quot;Confirmed&quot;),
+ISPICKVAL(Status__c,&quot;Cancelled&quot;)
+),
+
+AND(
+ISPICKVAL(PRIORVALUE(Status__c),&quot;In Progress&quot;),
+ISPICKVAL(Status__c,&quot;Completed&quot;)
+)
+
+)
+
+)
+)</errorConditionFormula>
+    <errorDisplayField>Status__c</errorDisplayField>
+    <errorMessage>Invalid Status Transition. status can only be in downward order</errorMessage>
+</ValidationRule>

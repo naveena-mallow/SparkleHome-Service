@@ -1,0 +1,71 @@
+<template>
+    <lightning-quick-action-panel header="Assign Cleaner">
+        <template lwc:if={isLoading}>
+            <lightning-spinner alternative-text="Loading available cleaners"></lightning-spinner>
+        </template>
+        <template lwc:elseif={hasCleaners}>
+            <div class="legend" aria-label="Timeline legend">
+                <span><span class="legend-symbol legend-available"></span> Available time</span>
+                <span><span class="legend-symbol legend-booked"></span> Existing booking</span>
+                <span><span class="legend-symbol legend-travel"></span> 30 minutes after each job for travel</span>
+            </div>
+            <div class="timeline-scroll">
+                <div class="timeline-content">
+                    <div class="time-axis">
+                        <div class="cleaner-label-spacer"></div>
+                        <div class="time-axis-track" aria-label="Time from 8 AM to 8 PM">
+                            <template for:each={timeLabels} for:item="label">
+                                <span
+                                    key={label.key}
+                                    class={label.className}
+                                    style={label.style}
+                                >{label.label}</span>
+                            </template>
+                        </div>
+                        <div class="assign-spacer"></div>
+                    </div>
+                    <template for:each={cleaners} for:item="cleaner">
+                        <div class="cleaner-row" key={cleaner.id}>
+                            <div class="cleaner-label">
+                                <strong>{cleaner.name}</strong>
+                                <span>{cleaner.jobsToday} jobs · {cleaner.capacityText}</span>
+                            </div>
+                            <div class="schedule-track" aria-label={cleaner.name}>
+                                <template for:each={cleaner.travelBlocks} for:item="gap">
+                                    <span
+                                        key={gap.key}
+                                        class="travel-block"
+                                        style={gap.style}
+                                        title="30-minute travel time after the job"
+                                        aria-label="30-minute travel time after the job"
+                                    ></span>
+                                </template>
+                                <template for:each={cleaner.timelineJobs} for:item="job">
+                                    <span
+                                        key={job.bookingId}
+                                        class={job.className}
+                                        style={job.style}
+                                        title={job.title}
+                                    >{job.bookingName}</span>
+                                </template>
+                            </div>
+                            <lightning-button
+                                label="Assign"
+                                variant="brand"
+                                data-id={cleaner.id}
+                                disabled={isAssigning}
+                                onclick={handleAssign}
+                            ></lightning-button>
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </template>
+        <template lwc:elseif={hasError}>
+            <div class="slds-text-color_error" role="alert">{errorMessage}</div>
+        </template>
+        <template lwc:else>
+            <p>No active cleaners are available for this booking time.</p>
+        </template>
+    </lightning-quick-action-panel>
+</template>

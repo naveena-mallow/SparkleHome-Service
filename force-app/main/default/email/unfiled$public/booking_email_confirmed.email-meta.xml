@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>UTF-8</encodingKey>
+    <name>booking email confirmed</name>
+    <style>none</style>
+    <subject>✅ Your SparkleHome Booking Has Been Confirmed</subject>
+    <textOnly>✅ Booking Confirmed
+
+Hello {!Booking__c.Customer_Name__c},
+
+Your SparkleHome cleaning booking has been confirmed.
+
+Booking Number
+{!Booking__c.Name}
+
+Service
+{!Booking__c.Service__c}
+
+Cleaner
+{!Booking__c.Cleaner__r.Name}
+
+Date &amp; Time
+{!Booking__c.Start_Time__c}
+
+Duration
+{!Booking__c.Duration_hours__c} Hours
+
+Price
+₹ {!Booking__c.Price__c}
+
+GST (18%)
+₹ {!Booking__c.GST__c}
+
+Total Amount
+₹ {!Booking__c.Total__c}
+
+Customer Name
+{!Booking__c.Customer_Name__c}
+
+Customer Phone
+{!Booking__c.Customer_Phone__c}
+
+Address
+{!Booking__c.Customer_Address__c}
+
+Thank you for choosing SparkleHome Services.
+
+We look forward to serving you.</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

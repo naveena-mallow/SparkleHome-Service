@@ -1,0 +1,134 @@
+<template>
+    <lightning-card title="Booking Job" icon-name="standard:work_order">
+        <div class="slds-p-around_medium">
+            <template lwc:if={isLoading}>
+                <lightning-spinner alternative-text="Loading booking"></lightning-spinner>
+            </template>
+            <template lwc:elseif={hasError}>
+                <p class="slds-text-color_error" role="alert">{errorMessage}</p>
+            </template>
+            <template lwc:elseif={booking}>
+                <article class="job-card">
+                    <div class="job-heading">
+                        <div>
+                            <p class="booking-number">{booking.Name}</p>
+                            <h2 class="service-name">{booking.Service__c}</h2>
+                            <p class="schedule">{booking.timeLabel}</p>
+                        </div>
+                        <lightning-badge label={booking.Status__c}></lightning-badge>
+                    </div>
+
+                    <div class="job-details">
+                        <div class="detail">
+                            <span class="detail-label">Customer</span>
+                            <span>{booking.Customer_Name__c}</span>
+                        </div>
+                        <div class="detail">
+                            <span class="detail-label">Phone</span>
+                            <template lwc:if={booking.phoneLink}>
+                                <a href={booking.phoneLink}>{booking.Customer_Phone__c}</a>
+                            </template>
+                            <template lwc:else>
+                                <span>Not provided</span>
+                            </template>
+                        </div>
+                        <div class="detail detail_address">
+                            <span class="detail-label">Address</span>
+                            <span>{booking.Customer_Address__c}</span>
+                        </div>
+                        <div class="detail">
+                            <span class="detail-label">Total</span>
+                            <span>₹ {booking.Total__c}</span>
+                        </div>
+                        <div class="detail">
+                            <span class="detail-label">Payment</span>
+                            <span>{booking.Payment_Status__c}</span>
+                        </div>
+                    </div>
+
+                    <template lwc:if={booking.isCancelled}>
+                        <section class="cancellation-details" aria-label="Cancelled booking">
+                            <strong>Cancelled</strong>
+                            <template lwc:if={booking.hasCancellationReason}>
+                                <p>Reason: {booking.Cancellation_Reason__c}</p>
+                            </template>
+                        </section>
+                    </template>
+
+                    <div class="job-actions">
+                        <template lwc:if={booking.canStart}>
+                            <lightning-button
+                                label="Start Job"
+                                variant="brand"
+                                disabled={isUpdating}
+                                onclick={handleStart}
+                            ></lightning-button>
+                        </template>
+                        <template lwc:if={booking.canComplete}>
+                            <lightning-button
+                                label="Complete Job"
+                                variant="brand"
+                                disabled={isUpdating}
+                                onclick={openPayment}
+                            ></lightning-button>
+                        </template>
+                        <template lwc:if={booking.isCompleted}>
+                            <span class="completed-label" aria-label="Job completed">Completed</span>
+                        </template>
+                    </div>
+                </article>
+            </template>
+        </div>
+    </lightning-card>
+
+    <template lwc:if={showPaymentModal}>
+        <section
+            role="dialog"
+            tabindex="-1"
+            aria-modal="true"
+            aria-labelledby="payment-title"
+            class="slds-modal slds-fade-in-open"
+        >
+            <div class="slds-modal__container">
+                <header class="slds-modal__header">
+                    <lightning-button-icon
+                        icon-name="utility:close"
+                        alternative-text="Close"
+                        variant="bare-inverse"
+                        class="slds-modal__close"
+                        onclick={closePayment}
+                    ></lightning-button-icon>
+                    <h2 id="payment-title" class="slds-text-heading_medium">Complete Job</h2>
+                </header>
+                <div class="slds-modal__content slds-p-around_medium">
+                    <p class="payment-prompt">Select the payment status for this booking.</p>
+                    <div class="payment-options" role="group" aria-label="Payment method">
+                        <template for:each={paymentOptions} for:item="option">
+                            <button
+                                key={option.value}
+                                type="button"
+                                class={option.className}
+                                data-mode={option.value}
+                                aria-pressed={option.selected}
+                                onclick={handlePaymentMode}
+                            >
+                                <span class="payment-option-title">{option.label}</span>
+                                <span class="payment-option-detail">{option.detail}</span>
+                            </button>
+                        </template>
+                    </div>
+                </div>
+                <footer class="slds-modal__footer">
+                    <lightning-button label="Cancel" onclick={closePayment}></lightning-button>
+                    <lightning-button
+                        label="Confirm Completion"
+                        variant="brand"
+                        disabled={isUpdating}
+                        onclick={completeJob}
+                    ></lightning-button>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+</template>

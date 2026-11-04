@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Payment_Mode_Cannot_Be_Entered_For_Unpai</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+ ISPICKVAL(Payment_Status__c,&quot;Unpaid&quot;),
+ NOT(ISBLANK(TEXT(Payment_Mode__c)))
+)</errorConditionFormula>
+    <errorDisplayField>Payment_Mode__c</errorDisplayField>
+    <errorMessage>Payment Mode should be blank when payment is unpaid.</errorMessage>
+</ValidationRule>

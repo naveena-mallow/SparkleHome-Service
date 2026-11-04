@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>Operations_Manager_Active</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Operations Manager - Active Cleaners</label>
+        <sharedTo>
+            <role>Operations_Manager</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>Cleaner_status__c</field>
+            <operation>equals</operation>
+            <value>Active</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Operations_Manager_Inactive</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Operations Manager - Inactive Cleaners</label>
+        <sharedTo>
+            <role>Operations_Manager</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>Cleaner_status__c</field>
+            <operation>equals</operation>
+            <value>Inactive</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>SparkleHome_Staff_Active</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>SparkleHome Staff - Active Cleaners</label>
+        <sharedTo>
+            <group>SparkleHome_Staff</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>Cleaner_status__c</field>
+            <operation>equals</operation>
+            <value>Active</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>SparkleHome_Staff_Inactive</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>SparkleHome Staff - Inactive Cleaners</label>
+        <sharedTo>
+            <group>SparkleHome_Staff</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>Cleaner_status__c</field>
+            <operation>equals</operation>
+            <value>Inactive</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+</SharingRules>

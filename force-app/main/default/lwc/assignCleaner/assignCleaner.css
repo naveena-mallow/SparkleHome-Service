@@ -1,0 +1,148 @@
+.legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    color: #444;
+    font-size: 0.8rem;
+}
+
+.legend-symbol {
+    display: inline-block;
+    width: 0.8rem;
+    height: 0.8rem;
+    margin-right: 0.25rem;
+    border-radius: 0.15rem;
+    vertical-align: middle;
+}
+
+.legend-available {
+    background-color: #f3f6f9;
+    border: 1px solid #c9d2dc;
+}
+
+.legend-booked {
+    background-color: #ba0517;
+}
+
+.legend-travel {
+    background-color: #fe9339;
+}
+
+.timeline-scroll {
+    overflow-x: auto;
+}
+
+.timeline-content {
+    min-width: 930px;
+}
+
+.time-axis,
+.cleaner-row {
+    display: grid;
+    grid-template-columns: 150px minmax(720px, 1fr) 76px;
+    column-gap: 0.75rem;
+    align-items: center;
+}
+
+.time-axis {
+    height: 2rem;
+}
+
+.time-axis-track {
+    position: relative;
+    height: 100%;
+}
+
+.time-label {
+    position: absolute;
+    bottom: 0;
+    color: #444;
+    font-size: 0.7rem;
+    transform: translateX(-50%);
+    white-space: nowrap;
+}
+
+.time-label_end {
+    transform: translateX(-100%);
+}
+
+.cleaner-row {
+    min-height: 4.5rem;
+    border-top: 1px solid #e5e5e5;
+}
+
+.cleaner-label {
+    position: sticky;
+    left: 0;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    align-self: stretch;
+    justify-content: center;
+    background: #fff;
+    font-size: 0.85rem;
+}
+
+.cleaner-label span {
+    color: #5c5c5c;
+    font-size: 0.7rem;
+}
+
+.schedule-track {
+    position: relative;
+    height: 2.5rem;
+    overflow: hidden;
+    background-color: #f8f9fb;
+    background-image:
+        linear-gradient(to right, #d5dce4 1px, transparent 1px),
+        linear-gradient(to right, #e8ecf1 1px, transparent 1px);
+    background-size: 16.666667% 100%, 4.166667% 100%;
+    border-radius: 0.25rem;
+}
+
+.travel-block,
+.job-block {
+    position: absolute;
+    top: 0.4rem;
+    height: 1.7rem;
+}
+
+.travel-block {
+    background: rgb(254 147 57 / 42%);
+    border-radius: 0.25rem;
+}
+
+.job-block {
+    z-index: 1;
+    overflow: hidden;
+    padding: 0.25rem 0.35rem;
+    color: #fff;
+    font-size: 0.65rem;
+    line-height: 1.2;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    background: #ba0517;
+    border-radius: 0.25rem;
+}
+
+.job-block_in-progress {
+    background: #0176d3;
+}
+
+.job-block_completed {
+    background: #2e844a;
+}
+
+@media only screen and (max-width: 600px) {
+    .timeline-content {
+        min-width: 900px;
+    }
+
+    .time-axis,
+    .cleaner-row {
+        grid-template-columns: 130px minmax(720px, 1fr) 76px;
+        column-gap: 0.5rem;
+    }
+}

@@ -1,0 +1,8 @@
+// Use .soql files to store SOQL queries.
+// You can execute queries in VS Code by selecting the
+//     query text and running the command:
+//     SFDX: Execute SOQL Query with Currently Selected Text
+
+SELECT Assignee.Name, Assignee.Username
+FROM PermissionSetAssignment
+WHERE PermissionSet.Name = 'Bulk_Data_Load_Bypass'

@@ -1,0 +1,162 @@
+<div style="margin:0;padding:20px;background:#f4f5f7;font-family:Arial,sans-serif;">
+
+<table width="100%" cellpadding="0" cellspacing="0">
+<tr>
+<td align="center">
+
+<table width="700" cellpadding="0" cellspacing="0"
+style="background:white;border-radius:12px;">
+
+<tr>
+<td style="padding:35px;">
+
+<h2 style="color:#2e7d32;margin-bottom:10px;">
+✅ Booking Confirmed
+</h2>
+
+<p style="font-size:16px;color:#555;">
+Hello {!Booking__c.Customer_Name__c},
+</p>
+
+<p style="font-size:16px;color:#555;">
+Your SparkleHome cleaning booking has been confirmed.
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td style="padding:0 35px 20px 35px;">
+
+<table width="100%">
+<tr>
+<td style="
+background:#f5f7fb;
+padding:20px;
+border-radius:10px;
+">
+
+<strong>Booking Number</strong><br>
+{!Booking__c.Name}
+
+<br><br>
+
+<strong>Service</strong><br>
+{!Booking__c.Service__c}
+
+<br><br>
+
+<strong>Cleaner</strong><br>
+{!Booking__c.Cleaner__r.Name}
+
+<br><br>
+
+<strong>Date & Time</strong><br>
+{!Booking__c.Start_Time__c}
+
+<br><br>
+
+<strong>Duration</strong><br>
+{!Booking__c.Duration_hours__c} Hours
+
+</td>
+</tr>
+</table>
+
+</td>
+</tr>
+
+<tr>
+<td style="padding:0 35px 20px 35px;">
+
+<table width="100%">
+<tr>
+<td style="
+background:#fff8e6;
+padding:20px;
+border-radius:10px;
+">
+
+<strong>Price</strong><br>
+₹ {!Booking__c.Price__c}
+
+<br><br>
+
+<strong>GST (18%)</strong><br>
+₹ {!Booking__c.GST__c}
+
+<br><br>
+
+<strong>Total Amount</strong><br>
+
+<span style="
+font-size:24px;
+font-weight:bold;
+color:#2e7d32;
+">
+
+₹ {!Booking__c.Total__c}
+
+</span>
+
+</td>
+</tr>
+</table>
+
+</td>
+</tr>
+
+<tr>
+<td style="padding:0 35px 20px 35px;">
+
+<table width="100%">
+<tr>
+<td style="
+background:#f5f7fb;
+padding:20px;
+border-radius:10px;
+">
+
+<strong>Customer Name</strong><br>
+{!Booking__c.Customer_Name__c}
+
+<br><br>
+
+<strong>Customer Phone</strong><br>
+{!Booking__c.Customer_Phone__c}
+
+<br><br>
+
+<strong>Address</strong><br>
+{!Booking__c.Customer_Address__c}
+
+</td>
+</tr>
+</table>
+
+</td>
+</tr>
+
+<tr>
+<td style="
+padding:25px 35px;
+color:#777;
+">
+
+Thank you for choosing
+<strong>SparkleHome Services</strong>.
+
+<br><br>
+
+We look forward to serving you.
+
+</td>
+</tr>
+
+</table>
+
+</td>
+</tr>
+</table>
+
+</div>

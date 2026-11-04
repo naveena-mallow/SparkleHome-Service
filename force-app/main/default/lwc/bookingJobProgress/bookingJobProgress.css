@@ -1,0 +1,154 @@
+.job-card {
+    min-width: 0;
+    padding: 1.25rem;
+    background: #fff;
+    border: 1px solid #d8dde6;
+    border-radius: 0.875rem;
+    box-shadow: 0 3px 12px rgb(0 0 0 / 8%);
+}
+
+.job-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.booking-number,
+.schedule,
+.detail-label {
+    color: #5c5c5c;
+    font-size: 0.8125rem;
+}
+
+.booking-number {
+    margin: 0 0 0.25rem;
+    font-weight: 600;
+    letter-spacing: 0.025em;
+}
+
+.service-name {
+    margin: 0;
+    color: #181818;
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.schedule {
+    margin: 0.375rem 0 0;
+}
+
+.job-details {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.875rem 1rem;
+    padding: 1rem 0;
+}
+
+.detail {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    gap: 0.2rem;
+    overflow-wrap: anywhere;
+}
+
+.detail_address {
+    grid-column: 1 / -1;
+}
+
+.detail-label {
+    font-weight: 600;
+}
+
+.job-actions {
+    display: flex;
+    min-height: 2rem;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.completed-label {
+    color: #2e844a;
+    font-weight: 700;
+}
+
+.cancellation-details {
+    padding: 0.75rem 1rem;
+    color: #b91c1c;
+    background: #fef2f2;
+    border-radius: 0.5rem;
+}
+
+.cancellation-details p {
+    margin: 0.25rem 0 0;
+    overflow-wrap: anywhere;
+}
+
+.payment-prompt {
+    margin: 0 0 1rem;
+}
+
+.payment-options {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.75rem;
+}
+
+.payment-option {
+    display: flex;
+    min-height: 5.5rem;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.375rem;
+    padding: 0.75rem;
+    color: #181818;
+    text-align: left;
+    background: #fff;
+    border: 1px solid #c9c9c9;
+    border-radius: 0.625rem;
+    cursor: pointer;
+}
+
+.payment-option:hover {
+    border-color: #1589ee;
+}
+
+.payment-option:focus-visible {
+    outline: 2px solid #0176d3;
+    outline-offset: 2px;
+}
+
+.payment-option_selected {
+    background: #eef6ff;
+    border: 2px solid #1589ee;
+}
+
+.payment-option-title {
+    font-weight: 700;
+}
+
+.payment-option-detail {
+    color: #5c5c5c;
+    font-size: 0.75rem;
+}
+
+@media only screen and (max-width: 480px) {
+    .job-card {
+        padding: 1rem;
+    }
+
+    .job-details {
+        grid-template-columns: 1fr;
+    }
+
+    .detail_address {
+        grid-column: auto;
+    }
+
+    .payment-options {
+        grid-template-columns: 1fr;
+    }
+}

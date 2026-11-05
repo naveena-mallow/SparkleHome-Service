@@ -48,3 +48,9 @@ Apex test classes cover booking creation, pricing calculations, GST, cleaner ava
 
 Testing coverage:
 <img width="1466" height="483" alt="Screenshot 2026-11-04 at 10 39 30 PM" src="https://github.com/user-attachments/assets/d66e19b5-9ddb-4b87-ad4f-3101f16110b6" />
+
+Screenshots:
+<img width="1315" height="721" alt="Screenshot 2026-11-05 at 9 47 25 AM" src="https://github.com/user-attachments/assets/5e778de6-f2ad-426d-a3b0-854d4b5d4976" />
+<img width="1470" height="787" alt="Screenshot 2026-11-05 at 9 48 45 AM" src="https://github.com/user-attachments/assets/00f75bbb-67ad-412f-8489-813bb30ce540" />
+<img width="1470" height="553" alt="Screenshot 2026-11-05 at 9 49 25 AM" src="https://github.com/user-attachments/assets/eea3fa4e-06d0-4e14-ae51-cdc7c249274f" />
+

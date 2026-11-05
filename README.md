@@ -45,6 +45,9 @@ Testing
 
 Apex test classes cover booking creation, pricing calculations, GST, cleaner availability, scheduling conflicts, sharing, and payment handling.
 
+Login Credentials:
+naveenanayaki.9e88641ba48d@agentforce.com
+naveenapass1
 
 Testing coverage:
 <img width="1466" height="483" alt="Screenshot 2026-11-04 at 10 39 30 PM" src="https://github.com/user-attachments/assets/d66e19b5-9ddb-4b87-ad4f-3101f16110b6" />
